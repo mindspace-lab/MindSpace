@@ -16,7 +16,6 @@
     >
 
     <style>
-
         /* =========================
            GENERAL
         ========================= */
@@ -60,7 +59,7 @@
 
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 9999;
         }
 
         .logo {
@@ -74,19 +73,20 @@
             color: #9a6a45;
         }
 
-        nav {
+        nav ul {
             display: flex;
+            list-style: none;
             gap: 28px;
         }
 
-        nav a {
+        nav ul li a {
             font-size: 14px;
             font-weight: 500;
             color: #6d5849;
             transition: 0.3s;
         }
 
-        nav a:hover {
+        nav ul li a:hover {
             color: #9a6a45;
         }
 
@@ -94,7 +94,7 @@
             display: none;
             border: none;
             background: none;
-            font-size: 25px;
+            font-size: 28px;
             color: #3d2b1f;
             cursor: pointer;
         }
@@ -435,17 +435,39 @@
 
 
         /* =========================
-           RESPONSIVE
+           RESPONSIVE FOR ALL MOBILES & TABLETS
         ========================= */
 
-        @media (max-width: 900px) {
-
-            nav {
-                display: none;
-            }
+        @media (max-width: 1024px) {
 
             .menu-btn {
+                display: block !important;
+            }
+
+            nav ul {
+                display: none !important;
+                flex-direction: column;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: #f7f2ea;
+                border-bottom: 1px solid #e5d9cb;
+                padding: 20px 0;
+                text-align: center;
+                gap: 15px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.08);
+                z-index: 9999;
+            }
+
+            nav ul.mobile-menu {
+                display: flex !important;
+            }
+
+            nav ul li a {
+                font-size: 16px;
                 display: block;
+                padding: 8px 0;
             }
 
             .hero {
@@ -537,12 +559,14 @@
         </a>
 
         <nav>
-            <a href="brain-regions.html">Brain Regions</a>
-            <a href="memory.html">Memory</a>
-            <a href="sleep.html">Sleep</a>
-            <a href="emotion.html">Emotion</a>
-            <a href="learning.html">Learning</a>
-            <a href="facts.html">Facts</a>
+            <ul>
+                <li><a href="brain-regions.html">Brain Regions</a></li>
+                <li><a href="memory.html">Memory</a></li>
+                <li><a href="sleep.html">Sleep</a></li>
+                <li><a href="emotion.html">Emotion</a></li>
+                <li><a href="learning.html">Learning</a></li>
+                <li><a href="facts.html">Facts</a></li>
+            </ul>
         </nav>
 
         <button class="menu-btn">☰</button>
@@ -946,6 +970,23 @@
 
     </footer>
 
+
+    <!-- =========================
+         SCRIPT JS
+    ========================= -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuBtn = document.querySelector(".menu-btn");
+            const navUl = document.querySelector("nav ul");
+
+            if (menuBtn && navUl) {
+                menuBtn.addEventListener("click", () => {
+                    navUl.classList.toggle("mobile-menu");
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>

@@ -30,6 +30,8 @@
             padding: 0 7%;
             background: #f5efe6;
             border-bottom: 1px solid #d8cabb;
+            position: relative;
+            z-index: 9999;
         }
 
         .logo {
@@ -37,6 +39,7 @@
             font-size: 25px;
             font-weight: bold;
             color: #4b372d;
+            text-decoration: none;
         }
 
         .logo span {
@@ -57,6 +60,16 @@
 
         nav ul li a:hover {
             color: #9a806b;
+        }
+
+        /* BUTTON 3 CHERTAT */
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #4b372d;
+            cursor: pointer;
         }
 
         /* HERO */
@@ -269,15 +282,37 @@
             font-size: 13px;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 800px) {
+        /* RESPONSIVE FOR ALL MOBILES & TABLETS */
+        @media (max-width: 1024px) {
+
+            .menu-btn {
+                display: block !important;
+            }
 
             nav ul {
-                gap: 10px;
+                display: none !important;
+                flex-direction: column;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: #f5efe6;
+                border-bottom: 1px solid #d8cabb;
+                padding: 20px 0;
+                text-align: center;
+                gap: 15px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.08);
+                z-index: 9999;
+            }
+
+            nav ul.mobile-menu {
+                display: flex !important;
             }
 
             nav ul li a {
-                font-size: 11px;
+                font-size: 16px;
+                display: block;
+                padding: 8px 0;
             }
 
             .hero {
@@ -313,9 +348,9 @@
     <!-- NAVBAR -->
     <nav>
 
-        <div class="logo">
+        <a href="index.html" class="logo">
             Mind<span>Space</span>
-        </div>
+        </a>
 
         <ul>
             <li><a href="brain-regions.html">Brain Regions</a></li>
@@ -325,6 +360,8 @@
             <li><a href="learning.html">Learning</a></li>
             <li><a href="facts.html">Facts</a></li>
         </ul>
+
+        <button class="menu-btn">☰</button>
 
     </nav>
 
@@ -565,6 +602,21 @@
         © 2026 MindSpace — Explore the Human Brain
 
     </footer>
+
+
+    <!-- SCRIPT JS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuBtn = document.querySelector(".menu-btn");
+            const navUl = document.querySelector("nav ul");
+
+            if (menuBtn && navUl) {
+                menuBtn.addEventListener("click", () => {
+                    navUl.classList.toggle("mobile-menu");
+                });
+            }
+        });
+    </script>
 
 </body>
 

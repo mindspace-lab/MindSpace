@@ -1,488 +1,512 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+scroll-behavior: smooth;
 }
 
 body {
-    background: #f8f4ed;
-    color: #3b251b;
-    font-family: "DM Sans", sans-serif;
+background: #f8f4ed;
+color: #3b251b;
+font-family: "DM Sans", sans-serif;
 }
 
 
 /* =========================
-   NAVBAR
+NAVBAR
 ========================= */
 
 .navbar {
-    width: 100%;
-    padding: 25px 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #f8f4ed;
-    border-bottom: 1px solid #e4d9cb;
+width: 100%;
+padding: 25px 7%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: #f8f4ed;
+border-bottom: 1px solid #e4d9cb;
 
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+position: sticky;
+top: 0;
+z-index: 9999; /* Zidna height باش yb9a l-header DIMA l-fawq */
 }
 
 .logo {
-    color: #3b251b;
-    text-decoration: none;
-    font-family: "Playfair Display", serif;
-    font-size: 28px;
-    font-weight: 700;
+color: #3b251b;
+text-decoration: none;
+font-family: "Playfair Display", serif;
+font-size: 28px;
+font-weight: 700;
 }
 
 .logo span,
 .footer-logo span {
-    color: #96745b;
+color: #96745b;
 }
 
 .navbar nav {
-    display: flex;
-    gap: 25px;
+display: flex;
+gap: 25px;
 }
 
 .navbar nav a {
-    color: #5c4638;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    transition: 0.3s;
+color: #5c4638;
+text-decoration: none;
+font-size: 13px;
+font-weight: 500;
+transition: 0.3s;
 }
 
 .navbar nav a:hover {
-    color: #96745b;
+color: #96745b;
 }
 
 .menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 22px;
+display: none;
+background: none;
+border: none;
+font-size: 26px;
+color: #3b251b;
+cursor: pointer;
 }
 
 
 /* =========================
-   HERO
+HERO
 ========================= */
 
 .hero {
-    min-height: 720px;
-    padding: 80px 7%;
+min-height: 720px;
+padding: 80px 7%;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+display: flex;
+align-items: center;
+justify-content: space-between;
 
-    gap: 50px;
+gap: 50px;
 }
 
 .hero-text {
-    max-width: 600px;
+max-width: 600px;
 }
 
 .small-title {
-    color: #96745b;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin-bottom: 25px;
+color: #96745b;
+font-size: 12px;
+font-weight: 700;
+letter-spacing: 3px;
+margin-bottom: 25px;
 }
 
 .hero h1 {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(55px, 7vw, 95px);
-    line-height: 0.98;
-    font-weight: 600;
-    margin-bottom: 30px;
+font-family: "Playfair Display", serif;
+font-size: clamp(55px, 7vw, 95px);
+line-height: 0.98;
+font-weight: 600;
+margin-bottom: 30px;
 }
 
 .hero h1 span {
-    color: #96745b;
-    display: block;
-    font-style: italic;
+color: #96745b;
+display: block;
+font-style: italic;
 }
 
 .hero-description {
-    max-width: 490px;
-    color: #735f50;
-    font-size: 17px;
-    line-height: 1.8;
-    margin-bottom: 35px;
+max-width: 490px;
+color: #735f50;
+font-size: 17px;
+line-height: 1.8;
+margin-bottom: 35px;
 }
 
 .main-button {
-    display: inline-block;
-    padding: 15px 25px;
-    border-radius: 50px;
+display: inline-block;
+padding: 15px 25px;
+border-radius: 50px;
 
-    background: #4a2f21;
-    color: white;
+background: #4a2f21;
+color: white;
 
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
+text-decoration: none;
+font-size: 14px;
+font-weight: 600;
 
-    transition: 0.3s;
+transition: 0.3s;
 }
 
 .main-button:hover {
-    transform: translateY(-3px);
-    background: #6a4935;
+transform: translateY(-3px);
+background: #6a4935;
 }
 
 
 /* =========================
-   HERO VISUAL
+HERO VISUAL
 ========================= */
 
 .hero-visual {
-    width: 450px;
-    height: 450px;
+width: 450px;
+height: 450px;
 
-    position: relative;
+position: relative;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .circle {
-    position: absolute;
-    border-radius: 50%;
+position: absolute;
+border-radius: 50%;
 }
 
 .circle-one {
-    width: 380px;
-    height: 380px;
-    background: #e7d8c8;
+width: 380px;
+height: 380px;
+background: #e7d8c8;
 }
 
 .circle-two {
-    width: 300px;
-    height: 300px;
-    border: 1px solid #b69a82;
+width: 300px;
+height: 300px;
+border: 1px solid #b69a82;
 }
 
 .brain {
-    position: relative;
-    z-index: 2;
+position: relative;
+z-index: 2;
 
-    font-size: 175px;
+font-size: 175px;
 
-    filter: grayscale(100%);
+filter: grayscale(100%);
 }
 
 .floating-card {
-    position: absolute;
-    z-index: 5;
+position: absolute;
+z-index: 5;
 
-    background: #fffdf9;
-    padding: 15px 20px;
+background: #fffdf9;
+padding: 15px 20px;
 
-    border: 1px solid #e1d5c8;
-    border-radius: 14px;
+border: 1px solid #e1d5c8;
+border-radius: 14px;
 
-    box-shadow: 0 15px 40px rgba(70, 45, 30, 0.08);
+box-shadow: 0 15px 40px rgba(70, 45, 30, 0.08);
 
-    font-size: 12px;
-    color: #796252;
+font-size: 12px;
+color: #796252;
 }
 
 .floating-card span {
-    display: block;
-    color: #4a2f21;
-    font-size: 20px;
-    font-weight: 700;
+display: block;
+color: #4a2f21;
+font-size: 20px;
+font-weight: 700;
 }
 
 .card-one {
-    top: 60px;
-    left: 0;
+top: 60px;
+left: 0;
 }
 
 .card-two {
-    right: 0;
-    bottom: 65px;
+right: 0;
+bottom: 65px;
 }
 
 
 /* =========================
-   INTRO
+INTRO
 ========================= */
 
 .intro {
-    padding: 130px 7%;
-    text-align: center;
-    max-width: 900px;
-    margin: auto;
+padding: 130px 7%;
+text-align: center;
+max-width: 900px;
+margin: auto;
 }
 
 .intro h2 {
-    font-family: "Playfair Display", serif;
-    font-size: 55px;
-    line-height: 1.1;
-    margin-bottom: 25px;
+font-family: "Playfair Display", serif;
+font-size: 55px;
+line-height: 1.1;
+margin-bottom: 25px;
 }
 
 .intro h2 span {
-    color: #96745b;
-    font-style: italic;
+color: #96745b;
+font-style: italic;
 }
 
 .intro > p:last-child {
-    color: #735f50;
-    line-height: 1.8;
-    max-width: 600px;
-    margin: auto;
+color: #735f50;
+line-height: 1.8;
+max-width: 600px;
+margin: auto;
 }
 
 
 /* =========================
-   TOPICS
+TOPICS
 ========================= */
 
 .topics {
-    padding: 60px 7% 130px;
+padding: 60px 7% 130px;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
 }
 
 .topic-card {
-    background: #fffdf9;
+background: #fffdf9;
 
-    border: 1px solid #e3d8ca;
-    border-radius: 22px;
+border: 1px solid #e3d8ca;
+border-radius: 22px;
 
-    padding: 35px;
+padding: 35px;
 
-    min-height: 330px;
+min-height: 330px;
 
-    position: relative;
+position: relative;
 
-    transition: 0.35s;
+transition: 0.35s;
 }
 
 .topic-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(70, 45, 30, 0.09);
+transform: translateY(-8px);
+box-shadow: 0 20px 50px rgba(70, 45, 30, 0.09);
 }
 
 .topic-number {
-    color: #b49a84;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
+color: #b49a84;
+font-size: 12px;
+font-weight: 700;
+letter-spacing: 2px;
 }
 
 .topic-icon {
-    width: 65px;
-    height: 65px;
+width: 65px;
+height: 65px;
 
-    margin: 35px 0 25px;
+margin: 35px 0 25px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+display: flex;
+align-items: center;
+justify-content: center;
 
-    border-radius: 50%;
+border-radius: 50%;
 
-    background: #eee3d6;
-    color: #5b3b29;
+background: #eee3d6;
+color: #5b3b29;
 
-    font-size: 28px;
+font-size: 28px;
 }
 
 .topic-card h3 {
-    font-family: "Playfair Display", serif;
-    font-size: 29px;
-    margin-bottom: 15px;
+font-family: "Playfair Display", serif;
+font-size: 29px;
+margin-bottom: 15px;
 }
 
 .topic-card p {
-    color: #796557;
-    line-height: 1.7;
-    font-size: 14px;
-    margin-bottom: 25px;
+color: #796557;
+line-height: 1.7;
+font-size: 14px;
+margin-bottom: 25px;
 }
 
 .topic-card a {
-    color: #4a2f21;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
+color: #4a2f21;
+text-decoration: none;
+font-size: 13px;
+font-weight: 700;
 }
 
 .topic-card a:hover {
-    color: #96745b;
+color: #96745b;
 }
 
 
 /* =========================
-   QUOTE
+QUOTE
 ========================= */
 
 .quote {
-    background: #4a2f21;
-    color: #f8f4ed;
+background: #4a2f21;
+color: #f8f4ed;
 
-    padding: 130px 7%;
+padding: 130px 7%;
 
-    text-align: center;
+text-align: center;
 }
 
 .quote-mark {
-    font-family: "Playfair Display", serif;
-    font-size: 90px;
-    color: #bda58f;
-    height: 70px;
+font-family: "Playfair Display", serif;
+font-size: 90px;
+color: #bda58f;
+height: 70px;
 }
 
 .quote h2 {
-    max-width: 800px;
-    margin: 20px auto;
+max-width: 800px;
+margin: 20px auto;
 
-    font-family: "Playfair Display", serif;
-    font-size: 55px;
-    line-height: 1.15;
+font-family: "Playfair Display", serif;
+font-size: 55px;
+line-height: 1.15;
 }
 
 .quote h2 span {
-    color: #d0b9a1;
-    font-style: italic;
+color: #d0b9a1;
+font-style: italic;
 }
 
 .quote p {
-    color: #d8c8b8;
+color: #d8c8b8;
 }
 
 
 /* =========================
-   FOOTER
+FOOTER
 ========================= */
 
 footer {
-    background: #f8f4ed;
-    padding: 60px 7% 35px;
-    text-align: center;
+background: #f8f4ed;
+padding: 60px 7% 35px;
+text-align: center;
 }
 
 .footer-logo {
-    font-family: "Playfair Display", serif;
-    font-size: 28px;
-    font-weight: 700;
+font-family: "Playfair Display", serif;
+font-size: 28px;
+font-weight: 700;
 }
 
 footer p {
-    color: #796557;
-    margin: 15px 0 30px;
+color: #796557;
+margin: 15px 0 30px;
 }
 
 .footer-line {
-    height: 1px;
-    background: #dfd2c4;
-    margin-bottom: 25px;
+height: 1px;
+background: #dfd2c4;
+margin-bottom: 25px;
 }
 
 footer small {
-    color: #9a8879;
+color: #9a8879;
 }
 
 
 /* =========================
-   RESPONSIVE
+RESPONSIVE (MOBILE FIX)
 ========================= */
 
 @media (max-width: 1000px) {
 
-    .navbar nav {
-        display: none;
-    }
+.menu-btn {
+display: block !important;
+}
 
-    .menu-btn {
-        display: block;
-        color: #3b251b;
-    }
+.navbar nav {
+display: none;
+flex-direction: column;
+position: absolute;
+top: 100%;
+left: 0;
+width: 100%;
+background: #f8f4ed;
+border-bottom: 1px solid #e4d9cb;
+padding: 25px 0;
+text-align: center;
+gap: 20px;
+box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
+z-index: 10000;
+}
 
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 70px;
-    }
+.navbar nav.mobile-menu {
+display: flex !important;
+}
 
-    .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-    }
+.navbar nav a {
+font-size: 16px;
+font-weight: 600;
+padding: 10px 0;
+display: block;
+}
 
-    .hero-visual {
-        width: 380px;
-        height: 380px;
-    }
+.hero {
+flex-direction: column;
+text-align: center;
+padding-top: 70px;
+}
 
-    .topics {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.hero-description {
+margin-left: auto;
+margin-right: auto;
+}
+
+.hero-visual {
+width: 380px;
+height: 380px;
+}
+
+.topics {
+grid-template-columns: repeat(2, 1fr);
+}
 }
 
 
 @media (max-width: 650px) {
 
-    .hero {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
+.hero {
+padding-left: 5%;
+padding-right: 5%;
+}
 
-    .hero h1 {
-        font-size: 55px;
-    }
+.hero h1 {
+font-size: 55px;
+}
 
-    .hero-visual {
-        width: 300px;
-        height: 300px;
-    }
+.hero-visual {
+width: 300px;
+height: 300px;
+}
 
-    .circle-one {
-        width: 280px;
-        height: 280px;
-    }
+.circle-one {
+width: 280px;
+height: 280px;
+}
 
-    .circle-two {
-        width: 220px;
-        height: 220px;
-    }
+.circle-two {
+width: 220px;
+height: 220px;
+}
 
-    .brain {
-        font-size: 120px;
-    }
+.brain {
+font-size: 120px;
+}
 
-    .card-one {
-        left: -10px;
-    }
+.card-one {
+left: -10px;
+}
 
-    .card-two {
-        right: -10px;
-    }
+.card-two {
+right: -10px;
+}
 
-    .topics {
-        grid-template-columns: 1fr;
-        padding-left: 5%;
-        padding-right: 5%;
-    }
+.topics {
+grid-template-columns: 1fr;
+padding-left: 5%;
+padding-right: 5%;
+}
 
-    .intro h2,
-    .quote h2 {
-        font-size: 40px;
-    }
+.intro h2,
+.quote h2 {
+font-size: 40px;
+}
 }

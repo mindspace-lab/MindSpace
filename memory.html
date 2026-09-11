@@ -30,6 +30,8 @@
             padding: 0 7%;
             background: #f5efe6;
             border-bottom: 1px solid #d8cabb;
+            position: relative;
+            z-index: 9999;
         }
 
         .logo {
@@ -37,6 +39,7 @@
             font-size: 25px;
             font-weight: bold;
             color: #4b372d;
+            text-decoration: none;
         }
 
         .logo span {
@@ -57,6 +60,16 @@
 
         nav ul li a:hover {
             color: #9a806b;
+        }
+
+        /* BUTTON 3 CHERTAT */
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #4b372d;
+            cursor: pointer;
         }
 
         /* HERO */
@@ -289,15 +302,36 @@
             font-size: 13px;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 800px) {
+        /* RESPONSIVE FOR ALL MOBLES & TABLETS */
+        @media (max-width: 1024px) {
+            .menu-btn {
+                display: block !important;
+            }
 
             nav ul {
-                gap: 10px;
+                display: none !important;
+                flex-direction: column;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: #f5efe6;
+                border-bottom: 1px solid #d8cabb;
+                padding: 20px 0;
+                text-align: center;
+                gap: 15px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.08);
+                z-index: 9999;
+            }
+
+            nav ul.mobile-menu {
+                display: flex !important;
             }
 
             nav ul li a {
-                font-size: 11px;
+                font-size: 16px;
+                display: block;
+                padding: 8px 0;
             }
 
             .hero {
@@ -332,10 +366,9 @@
 
     <!-- NAVBAR -->
     <nav>
-
-        <div class="logo">
+        <a href="index.html" class="logo">
             Mind<span>Space</span>
-        </div>
+        </a>
 
         <ul>
             <li><a href="brain-regions.html">Brain Regions</a></li>
@@ -346,6 +379,7 @@
             <li><a href="facts.html">Facts</a></li>
         </ul>
 
+        <button class="menu-btn">☰</button>
     </nav>
 
 
@@ -353,32 +387,24 @@
     <section class="hero">
 
         <div class="hero-text">
-
             <h1>The Power of Memory</h1>
-
             <p>
                 Memory allows the brain to encode, store, and retrieve
                 information. It helps us learn from experience, recognize
                 people and places, and build knowledge throughout our lives.
             </p>
-
         </div>
 
-
         <div class="memory-visual">
-
             <span class="spark spark1">✦</span>
             <span class="spark spark2">✧</span>
             <span class="spark spark3">✦</span>
 
             <div class="brain">
-
                 <div class="line line1"></div>
                 <div class="line line2"></div>
                 <div class="line line3"></div>
-
             </div>
-
         </div>
 
     </section>
@@ -386,194 +412,150 @@
 
     <!-- INTRO -->
     <section>
-
         <h2 class="section-title">What Is Memory?</h2>
-
         <p class="section-intro">
             Memory is the brain's ability to take in information,
             keep it over time, and use it later. It is essential for
             learning, communication, decision-making, and everyday life.
         </p>
-
     </section>
 
 
     <!-- MEMORY TYPES -->
     <section>
-
         <h2 class="section-title">Types of Memory</h2>
-
         <p class="section-intro">
             Memory is not a single system. Different types of memory
             allow the brain to handle information in different ways.
         </p>
 
-
         <div class="memory-types">
-
             <div class="memory-card">
-
                 <div class="memory-number">TYPE 01</div>
-
                 <h3>Short-Term Memory</h3>
-
                 <p>
                     Short-term memory temporarily holds a small amount
                     of information for a short period. It can help us
                     remember a phone number, a sentence, or instructions
                     while we are using them.
                 </p>
-
             </div>
 
-
             <div class="memory-card">
-
                 <div class="memory-number">TYPE 02</div>
-
                 <h3>Working Memory</h3>
-
                 <p>
                     Working memory allows us to hold information and
                     work with it at the same time. It is important for
                     reasoning, problem-solving, reading, and following
                     complex instructions.
                 </p>
-
             </div>
 
-
             <div class="memory-card">
-
                 <div class="memory-number">TYPE 03</div>
-
                 <h3>Long-Term Memory</h3>
-
                 <p>
                     Long-term memory stores information for much longer
                     periods, from hours and days to many years. It includes
                     knowledge, experiences, skills, and important events.
                 </p>
-
             </div>
 
-
             <div class="memory-card">
-
                 <div class="memory-number">TYPE 04</div>
-
                 <h3>Episodic Memory</h3>
-
                 <p>
                     Episodic memory helps us remember personal experiences
                     and events. Memories of a birthday, a trip, or a special
                     moment are examples of information stored through this
                     type of memory.
                 </p>
-
             </div>
 
-
             <div class="memory-card">
-
                 <div class="memory-number">TYPE 05</div>
-
                 <h3>Semantic Memory</h3>
-
                 <p>
                     Semantic memory contains general knowledge and facts.
                     It helps us remember meanings, concepts, words, and
                     information that we have learned over time.
                 </p>
-
             </div>
-
         </div>
-
     </section>
 
 
     <!-- MEMORY PROCESS -->
     <section>
-
         <h2 class="section-title">How Memory Works</h2>
-
         <p class="section-intro">
             Creating a memory involves several important processes.
             Information is first taken in, then maintained, and finally
             accessed when we need it.
         </p>
 
-
         <div class="process">
-
             <div class="process-card">
-
                 <div class="icon">📥</div>
-
                 <h3>Encoding</h3>
-
                 <p>
                     The brain receives information and transforms it
                     into a form that can be processed and remembered.
                 </p>
-
             </div>
 
-
             <div class="process-card">
-
                 <div class="icon">🗂️</div>
-
                 <h3>Storage</h3>
-
                 <p>
                     Information is maintained over time so that it can
                     potentially be used again in the future.
                 </p>
-
             </div>
 
-
             <div class="process-card">
-
                 <div class="icon">🔎</div>
-
                 <h3>Retrieval</h3>
-
                 <p>
                     Retrieval allows the brain to access stored information
                     when we need to remember something.
                 </p>
-
             </div>
-
         </div>
-
     </section>
 
 
     <!-- FACT -->
     <div class="fact">
-
         <h2>Did You Know?</h2>
-
         <p>
             Memory is not stored in one single place in the brain.
             Different brain systems work together to create, store,
             and retrieve different kinds of information.
         </p>
-
     </div>
 
 
     <!-- FOOTER -->
     <footer>
-
         © 2026 MindSpace — Explore the Human Brain
-
     </footer>
 
+
+    <!-- SCRIPT JS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuBtn = document.querySelector(".menu-btn");
+            const navUl = document.querySelector("nav ul");
+
+            if (menuBtn && navUl) {
+                menuBtn.addEventListener("click", () => {
+                    navUl.classList.toggle("mobile-menu");
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
