@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Brain Regions — MindSpace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #f7f2ea;
+            color: #3d2b1f;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            width: 100%;
+            padding: 22px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: #f7f2ea;
+            border-bottom: 1px solid #e5d9cb;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 27px;
+            font-weight: 700;
+            color: #3d2b1f;
+        }
+
+        .logo span {
+            color: #9a6a45;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #6d5849;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #9a6a45;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: none;
+            font-size: 25px;
+            color: #3d2b1f;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 72vh;
+            padding: 80px 7%;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .small-title {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #a06e48;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(48px, 6vw, 75px);
+            line-height: 1.05;
+            color: #3d2b1f;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #9a6a45;
+        }
+
+        .hero-description {
+            max-width: 540px;
+            color: #725f51;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .main-button {
+            display: inline-block;
+            padding: 13px 23px;
+            background: #5b3b29;
+            color: white;
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .main-button:hover {
+            background: #8b6040;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           HERO IMAGE
+        ========================= */
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-box {
+            width: 100%;
+            max-width: 550px;
+            background: white;
+            border-radius: 22px;
+            padding: 25px;
+
+            border: 1px solid #e7d9cb;
+
+            box-shadow: 0 20px 50px rgba(73, 45, 27, 0.10);
+        }
+
+        .hero-image-box img {
+            width: 100%;
+            height: 390px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 13px;
+            color: #8b7565;
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .intro {
+            text-align: center;
+            padding: 80px 7% 60px;
+            background: #fffdf9;
+        }
+
+        .intro h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 43px;
+            color: #3d2b1f;
+            margin-bottom: 15px;
+        }
+
+        .intro h2 span {
+            color: #9a6a45;
+        }
+
+        .intro p:last-child {
+            max-width: 650px;
+            margin: auto;
+            color: #756256;
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           REGIONS
+        ========================= */
+
+        .regions {
+            padding: 80px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            color: #3d2b1f;
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: #7b6657;
+            max-width: 600px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           REGION CARD
+        ========================= */
+
+        .region-card {
+            max-width: 1100px;
+            margin: 0 auto 55px;
+
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+
+            background: #fffdf9;
+
+            border: 1px solid #e6d9cc;
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow: 0 15px 40px rgba(70, 43, 27, 0.07);
+
+            transition: 0.35s;
+        }
+
+        .region-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 22px 50px rgba(70, 43, 27, 0.11);
+        }
+
+
+        /* IMAGE */
+
+        .region-image {
+            min-height: 360px;
+            background: #f1e9df;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px;
+        }
+
+        .region-image img {
+            width: 100%;
+            height: 320px;
+            object-fit: contain;
+            display: block;
+        }
+
+
+        /* CONTENT */
+
+        .region-content {
+            padding: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .region-number {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #a06e48;
+            margin-bottom: 10px;
+        }
+
+        .region-content h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 35px;
+            color: #3d2b1f;
+            margin-bottom: 17px;
+        }
+
+        .region-content h3 span {
+            color: #9a6a45;
+        }
+
+        .region-content p {
+            color: #6f5c4e;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+
+
+        /* TAGS */
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .tag {
+            padding: 7px 12px;
+
+            background: #f2e8dd;
+            color: #76543d;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           FACT SECTION
+        ========================= */
+
+        .fact-section {
+            padding: 90px 7%;
+            background: #5b3b29;
+            color: white;
+            text-align: center;
+        }
+
+        .fact-section .small-title {
+            color: #dfc0a5;
+        }
+
+        .fact-section h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 45px;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.2;
+        }
+
+        .fact-section h2 span {
+            color: #e1b48d;
+        }
+
+        .fact-section p {
+            margin-top: 18px;
+            color: #e6d8cc;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 45px 7%;
+            background: #f7f2ea;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            font-weight: 700;
+            color: #3d2b1f;
+        }
+
+        .footer-logo span {
+            color: #9a6a45;
+        }
+
+        footer p {
+            color: #806e61;
+            margin: 10px 0 25px;
+            font-size: 14px;
+        }
+
+        .footer-line {
+            width: 100%;
+            height: 1px;
+            background: #dfd1c3;
+            margin-bottom: 20px;
+        }
+
+        footer small {
+            color: #9a8777;
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 55px;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .region-card {
+                grid-template-columns: 1fr;
+            }
+
+            .region-image {
+                min-height: 300px;
+            }
+
+            .region-content {
+                padding: 35px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 18px 5%;
+            }
+
+            .hero {
+                padding: 55px 5%;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero-image-box img {
+                height: 280px;
+            }
+
+            .intro,
+            .regions {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .intro h2,
+            .section-heading h2 {
+                font-size: 34px;
+            }
+
+            .region-image img {
+                height: 260px;
+            }
+
+            .region-content {
+                padding: 28px;
+            }
+
+            .region-content h3 {
+                font-size: 29px;
+            }
+
+            .fact-section h2 {
+                font-size: 34px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            Mind<span>Space</span>
+        </a>
+
+        <nav>
+            <a href="brain-regions.html">Brain Regions</a>
+            <a href="memory.html">Memory</a>
+            <a href="sleep.html">Sleep</a>
+            <a href="emotion.html">Emotion</a>
+            <a href="learning.html">Learning</a>
+            <a href="facts.html">Facts</a>
+        </nav>
+
+        <button class="menu-btn">☰</button>
+
+    </header>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <p class="small-title">
+                    UNDERSTANDING THE BRAIN
+                </p>
+
+                <h1>
+                    Explore the
+                    <span>Brain Regions</span>
+                </h1>
+
+                <p class="hero-description">
+                    The human brain is made of different regions,
+                    each with an important role in how we think,
+                    move, learn, remember and experience the world.
+                </p>
+
+                <a href="#regions" class="main-button">
+                    Explore regions →
+                </a>
+
+            </div>
+
+
+            <div class="hero-visual">
+
+                <div class="hero-image-box">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Brain%20Lateral%20%28NIH%20BioArt%2060%29.png"
+                        alt="Human brain"
+                    >
+
+                    <p class="image-caption">
+                        Lateral view of the human brain
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             INTRO
+        ========================= -->
+
+        <section class="intro">
+
+            <p class="small-title">
+                FIVE IMPORTANT REGIONS
+            </p>
+
+            <h2>
+                Every region has a
+                <span>role to play.</span>
+            </h2>
+
+            <p>
+                From decision-making and memory to vision,
+                movement and balance, different parts of the brain
+                work together to control our daily lives.
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================
+             REGIONS
+        ========================= -->
+
+        <section class="regions" id="regions">
+
+
+            <div class="section-heading">
+
+                <p class="small-title">
+                    THE MAIN REGIONS
+                </p>
+
+                <h2>
+                    Meet the brain's regions
+                </h2>
+
+                <p>
+                    Explore what each region does and why it matters.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 01 FRONTAL LOBE
+            ========================= -->
+
+            <article class="region-card">
+
+                <div class="region-image">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Frontal%20lobe%20-%20lateral%20view.png"
+                        alt="Frontal lobe highlighted"
+                    >
+
+                </div>
+
+
+                <div class="region-content">
+
+                    <div class="region-number">
+                        01 — FRONTAL LOBE
+                    </div>
+
+                    <h3>
+                        The <span>Frontal Lobe</span>
+                    </h3>
+
+                    <p>
+                        The frontal lobe is involved in planning,
+                        decision-making and problem-solving.
+                        It also helps control voluntary movement
+                        and plays an important role in personality
+                        and social behavior.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">Planning</span>
+                        <span class="tag">Decision-making</span>
+                        <span class="tag">Problem-solving</span>
+                        <span class="tag">Motor control</span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =========================
+                 02 PARIETAL LOBE
+            ========================= -->
+
+            <article class="region-card">
+
+                <div class="region-image">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Parietal%20lobe%20-%20lateral%20view.png"
+                        alt="Parietal lobe highlighted"
+                    >
+
+                </div>
+
+
+                <div class="region-content">
+
+                    <div class="region-number">
+                        02 — PARIETAL LOBE
+                    </div>
+
+                    <h3>
+                        The <span>Parietal Lobe</span>
+                    </h3>
+
+                    <p>
+                        The parietal lobe processes information
+                        coming from the senses. It helps the brain
+                        understand touch, pressure, temperature
+                        and the position of the body in space.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">Touch</span>
+                        <span class="tag">Sensation</span>
+                        <span class="tag">Spatial awareness</span>
+                        <span class="tag">Body perception</span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =========================
+                 03 TEMPORAL LOBE
+            ========================= -->
+
+            <article class="region-card">
+
+                <div class="region-image">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Temporal%20lobe%20-%20lateral%20view.png"
+                        alt="Temporal lobe highlighted"
+                    >
+
+                </div>
+
+
+                <div class="region-content">
+
+                    <div class="region-number">
+                        03 — TEMPORAL LOBE
+                    </div>
+
+                    <h3>
+                        The <span>Temporal Lobe</span>
+                    </h3>
+
+                    <p>
+                        The temporal lobe is strongly involved in
+                        hearing, memory and language. It also helps
+                        the brain recognize and understand information.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">Memory</span>
+                        <span class="tag">Hearing</span>
+                        <span class="tag">Language</span>
+                        <span class="tag">Recognition</span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =========================
+                 04 OCCIPITAL LOBE
+            ========================= -->
+
+            <article class="region-card">
+
+                <div class="region-image">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Occipital%20lobe%20-%20lateral%20view.png"
+                        alt="Occipital lobe highlighted"
+                    >
+
+                </div>
+
+
+                <div class="region-content">
+
+                    <div class="region-number">
+                        04 — OCCIPITAL LOBE
+                    </div>
+
+                    <h3>
+                        The <span>Occipital Lobe</span>
+                    </h3>
+
+                    <p>
+                        The occipital lobe is mainly responsible
+                        for processing visual information.
+                        It helps the brain interpret colors,
+                        shapes, movement and what we see.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">Vision</span>
+                        <span class="tag">Colors</span>
+                        <span class="tag">Shapes</span>
+                        <span class="tag">Visual processing</span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =========================
+                 05 CEREBELLUM
+            ========================= -->
+
+            <article class="region-card">
+
+                <div class="region-image">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Cerebellum%20NIH.png"
+                        alt="Cerebellum highlighted"
+                    >
+
+                </div>
+
+
+                <div class="region-content">
+
+                    <div class="region-number">
+                        05 — CEREBELLUM
+                    </div>
+
+                    <h3>
+                        The <span>Cerebellum</span>
+                    </h3>
+
+                    <p>
+                        The cerebellum helps coordinate movement,
+                        maintain balance and control posture.
+                        It is also important for precise and
+                        well-coordinated motor skills.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">Balance</span>
+                        <span class="tag">Coordination</span>
+                        <span class="tag">Movement</span>
+                        <span class="tag">Motor skills</span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             FACT
+        ========================= -->
+
+        <section class="fact-section">
+
+            <p class="small-title">
+                BRAIN FACT
+            </p>
+
+            <h2>
+                The human brain contains around
+                <span>86 billion neurons.</span>
+            </h2>
+
+            <p>
+                These neurons communicate through an enormous
+                network of connections.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Mind<span>Space</span>
+        </div>
+
+        <p>
+            Exploring the human brain, one discovery at a time.
+        </p>
+
+        <div class="footer-line"></div>
+
+        <small>
+            © 2026 MindSpace. Educational project.
+        </small>
+
+    </footer>
+
+
+</body>
+</html>

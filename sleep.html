@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MindSpace — Sleep</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5efe6;
+            color: #3f3028;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            background: #f5efe6;
+            border-bottom: 1px solid #d8cabb;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 25px;
+            font-weight: bold;
+            color: #4b372d;
+        }
+
+        .logo span {
+            color: #9a806b;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #5b473b;
+            font-size: 14px;
+        }
+
+        nav ul li a:hover {
+            color: #9a806b;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 10%;
+        }
+
+        .hero-text {
+            width: 52%;
+        }
+
+        .hero-text h1 {
+            font-family: Georgia, serif;
+            font-size: 58px;
+            line-height: 1.1;
+            color: #3f3028;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            color: #806c5d;
+            max-width: 500px;
+        }
+
+        /* MOON VISUAL */
+        .sleep-visual {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: #e5d7c8;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .moon {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #8d7562;
+            position: relative;
+        }
+
+        .moon::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #e5d7c8;
+            left: 45px;
+            top: -18px;
+        }
+
+        .star {
+            position: absolute;
+            color: #6e594a;
+            font-size: 20px;
+        }
+
+        .star1 {
+            top: 45px;
+            left: 55px;
+        }
+
+        .star2 {
+            top: 85px;
+            right: 50px;
+        }
+
+        .star3 {
+            bottom: 55px;
+            left: 70px;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 65px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: Georgia, serif;
+            font-size: 35px;
+            color: #3f3028;
+            margin-bottom: 15px;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 45px;
+            color: #806c5d;
+        }
+
+        /* STAGES */
+        .stages {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .stage {
+            background: #faf6f0;
+            border: 1px solid #d8cabb;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .stage-number {
+            font-family: Georgia, serif;
+            font-size: 14px;
+            color: #9a806b;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .stage h3 {
+            font-family: Georgia, serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #4b372d;
+        }
+
+        .stage p {
+            color: #806c5d;
+            font-size: 15px;
+        }
+
+        /* WHY SLEEP */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .benefit {
+            background: #e9ded2;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .benefit .icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .benefit h3 {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .benefit p {
+            color: #806c5d;
+            font-size: 14px;
+        }
+
+        /* FACT */
+        .fact {
+            background: #4b372d;
+            color: #f5efe6;
+            text-align: center;
+            padding: 55px 10%;
+        }
+
+        .fact h2 {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .fact p {
+            max-width: 700px;
+            margin: auto;
+            color: #e5d7c8;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #f5efe6;
+            border-top: 1px solid #d8cabb;
+            color: #806c5d;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav ul li a {
+                font-size: 11px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .sleep-visual {
+                margin-top: 40px;
+            }
+
+            .stages {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            Mind<span>Space</span>
+        </div>
+
+        <ul>
+            <li><a href="brain-regions.html">Brain Regions</a></li>
+            <li><a href="memory.html">Memory</a></li>
+            <li><a href="sleep.html">Sleep</a></li>
+            <li><a href="emotion.html">Emotion</a></li>
+            <li><a href="learning.html">Learning</a></li>
+            <li><a href="facts.html">Facts</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-text">
+            <h1>The Brain During Sleep</h1>
+
+            <p>
+                Sleep is not simply a period of rest. While we sleep,
+                the brain remains active and performs important processes
+                that support memory, learning, emotions, and recovery.
+            </p>
+        </div>
+
+        <div class="sleep-visual">
+            <span class="star star1">✦</span>
+            <span class="star star2">✧</span>
+            <span class="star star3">✦</span>
+
+            <div class="moon"></div>
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section>
+
+        <h2 class="section-title">Why Do We Sleep?</h2>
+
+        <p class="section-intro">
+            Sleep gives the brain and body time to recover and prepare
+            for the next day. During the night, different stages of sleep
+            help regulate memory, attention, emotions, and physical recovery.
+        </p>
+
+    </section>
+
+
+    <!-- SLEEP STAGES -->
+    <section>
+
+        <h2 class="section-title">The Stages of Sleep</h2>
+
+        <p class="section-intro">
+            Sleep happens in repeating cycles. Each stage has a different
+            role and contributes to healthy brain function.
+        </p>
+
+        <div class="stages">
+
+            <div class="stage">
+                <div class="stage-number">STAGE 01</div>
+
+                <h3>N1 — Falling Asleep</h3>
+
+                <p>
+                    N1 is the lightest stage of sleep. It happens when you
+                    move from being awake to sleeping. Your muscles begin
+                    to relax, your breathing slows down, and you can still
+                    wake up easily.
+                </p>
+            </div>
+
+
+            <div class="stage">
+                <div class="stage-number">STAGE 02</div>
+
+                <h3>N2 — Deeper Rest</h3>
+
+                <p>
+                    During N2, your body becomes more relaxed and your
+                    heart rate and body temperature decrease. Brain activity
+                    also changes, helping the brain process information
+                    received during the day.
+                </p>
+            </div>
+
+
+            <div class="stage">
+                <div class="stage-number">STAGE 03</div>
+
+                <h3>N3 — Deep Sleep</h3>
+
+                <p>
+                    N3 is the deepest stage of non-REM sleep. The body
+                    focuses strongly on recovery and restoration. Deep sleep
+                    is also important for supporting learning and memory.
+                </p>
+            </div>
+
+
+            <div class="stage">
+                <div class="stage-number">STAGE 04</div>
+
+                <h3>REM — Active Brain</h3>
+
+                <p>
+                    During REM sleep, brain activity becomes more similar
+                    to wakefulness. Dreams often occur during this stage,
+                    and REM sleep plays an important role in memory and
+                    emotional processing.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY SLEEP MATTERS -->
+    <section>
+
+        <h2 class="section-title">Why Sleep Matters</h2>
+
+        <p class="section-intro">
+            Good sleep supports several important functions of the brain
+            and body.
+        </p>
+
+        <div class="benefits">
+
+            <div class="benefit">
+
+                <div class="icon">🧠</div>
+
+                <h3>Memory</h3>
+
+                <p>
+                    Sleep helps the brain organize and strengthen memories
+                    formed during the day.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="icon">🌙</div>
+
+                <h3>Recovery</h3>
+
+                <p>
+                    Sleep gives the body and brain time to restore energy
+                    and support normal physical functions.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="icon">💡</div>
+
+                <h3>Focus</h3>
+
+                <p>
+                    Adequate sleep supports attention, concentration,
+                    learning, and everyday mental performance.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FACT -->
+    <div class="fact">
+
+        <h2>Did You Know?</h2>
+
+        <p>
+            The brain does not simply switch off when we sleep.
+            It remains active throughout the night and continues to
+            organize information, regulate important processes, and
+            support memory and learning.
+        </p>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 MindSpace — Explore the Human Brain
+    </footer>
+
+</body>
+
+</html>

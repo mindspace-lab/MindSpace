@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MindSpace — Learning</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5efe6;
+            color: #3f3028;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            background: #f5efe6;
+            border-bottom: 1px solid #d8cabb;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 25px;
+            font-weight: bold;
+            color: #4b372d;
+        }
+
+        .logo span {
+            color: #9a806b;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #5b473b;
+            font-size: 14px;
+        }
+
+        nav ul li a:hover {
+            color: #9a806b;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 10%;
+        }
+
+        .hero-text {
+            width: 52%;
+        }
+
+        .hero-text h1 {
+            font-family: Georgia, serif;
+            font-size: 58px;
+            line-height: 1.1;
+            color: #3f3028;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            color: #806c5d;
+            max-width: 500px;
+        }
+
+        /* LEARNING VISUAL */
+        .learning-visual {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: #e5d7c8;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .book {
+            width: 155px;
+            height: 105px;
+            background: #9a806b;
+            position: relative;
+            border-radius: 8px;
+            transform: perspective(300px) rotateX(8deg);
+        }
+
+        .book::before {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 105px;
+            background: #4b372d;
+            left: 75px;
+            top: 0;
+        }
+
+        .page-line {
+            position: absolute;
+            height: 3px;
+            width: 38px;
+            background: #e5d7c8;
+            border-radius: 5px;
+        }
+
+        .page1 {
+            top: 30px;
+            left: 20px;
+        }
+
+        .page2 {
+            top: 48px;
+            left: 20px;
+        }
+
+        .page3 {
+            top: 66px;
+            left: 20px;
+        }
+
+        .page4 {
+            top: 30px;
+            right: 20px;
+        }
+
+        .page5 {
+            top: 48px;
+            right: 20px;
+        }
+
+        .page6 {
+            top: 66px;
+            right: 20px;
+        }
+
+        .spark {
+            position: absolute;
+            color: #6e594a;
+            font-size: 20px;
+        }
+
+        .spark1 {
+            top: 45px;
+            left: 50px;
+        }
+
+        .spark2 {
+            top: 80px;
+            right: 45px;
+        }
+
+        .spark3 {
+            bottom: 50px;
+            left: 70px;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 65px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: Georgia, serif;
+            font-size: 35px;
+            color: #3f3028;
+            margin-bottom: 15px;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 45px;
+            color: #806c5d;
+        }
+
+        /* LEARNING METHODS */
+        .learning-methods {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .learning-card {
+            background: #faf6f0;
+            border: 1px solid #d8cabb;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .learning-number {
+            font-family: Georgia, serif;
+            font-size: 14px;
+            color: #9a806b;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .learning-card h3 {
+            font-family: Georgia, serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #4b372d;
+        }
+
+        .learning-card p {
+            color: #806c5d;
+            font-size: 15px;
+        }
+
+        /* LEARNING PROCESS */
+        .process {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .process-card {
+            background: #e9ded2;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .process-card .icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .process-card h3 {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .process-card p {
+            color: #806c5d;
+            font-size: 14px;
+        }
+
+        /* FACT */
+        .fact {
+            background: #4b372d;
+            color: #f5efe6;
+            text-align: center;
+            padding: 55px 10%;
+        }
+
+        .fact h2 {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .fact p {
+            max-width: 700px;
+            margin: auto;
+            color: #e5d7c8;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #f5efe6;
+            border-top: 1px solid #d8cabb;
+            color: #806c5d;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav ul li a {
+                font-size: 11px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .learning-visual {
+                margin-top: 40px;
+            }
+
+            .learning-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .process {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+
+        <div class="logo">
+            Mind<span>Space</span>
+        </div>
+
+        <ul>
+            <li><a href="brain-regions.html">Brain Regions</a></li>
+            <li><a href="memory.html">Memory</a></li>
+            <li><a href="sleep.html">Sleep</a></li>
+            <li><a href="emotion.html">Emotion</a></li>
+            <li><a href="learning.html">Learning</a></li>
+            <li><a href="facts.html">Facts</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>How the Brain Learns</h1>
+
+            <p>
+                Learning is the process through which the brain acquires
+                new knowledge, skills, and behaviors. It changes the way
+                neurons communicate and helps us adapt to new experiences.
+            </p>
+
+        </div>
+
+
+        <div class="learning-visual">
+
+            <span class="spark spark1">✦</span>
+            <span class="spark spark2">✧</span>
+            <span class="spark spark3">✦</span>
+
+            <div class="book">
+
+                <div class="page-line page1"></div>
+                <div class="page-line page2"></div>
+                <div class="page-line page3"></div>
+
+                <div class="page-line page4"></div>
+                <div class="page-line page5"></div>
+                <div class="page-line page6"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section>
+
+        <h2 class="section-title">What Is Learning?</h2>
+
+        <p class="section-intro">
+            Learning allows the brain to change in response to experience.
+            By receiving information, practicing skills, and making
+            connections, the brain can develop new knowledge and abilities.
+        </p>
+
+    </section>
+
+
+    <!-- LEARNING METHODS -->
+    <section>
+
+        <h2 class="section-title">Ways We Learn</h2>
+
+        <p class="section-intro">
+            Learning can happen in different ways. The brain uses
+            information from experience, practice, observation, and
+            interaction with the environment.
+        </p>
+
+
+        <div class="learning-methods">
+
+            <div class="learning-card">
+
+                <div class="learning-number">METHOD 01</div>
+
+                <h3>Practice</h3>
+
+                <p>
+                    Repeated practice can help strengthen skills and make
+                    certain tasks easier to perform. Regular practice gives
+                    the brain more opportunities to reinforce useful patterns
+                    and connections.
+                </p>
+
+            </div>
+
+
+            <div class="learning-card">
+
+                <div class="learning-number">METHOD 02</div>
+
+                <h3>Observation</h3>
+
+                <p>
+                    We can learn by watching other people and observing
+                    how they perform tasks. Observation allows the brain
+                    to gather information and use it when developing
+                    new behaviors or skills.
+                </p>
+
+            </div>
+
+
+            <div class="learning-card">
+
+                <div class="learning-number">METHOD 03</div>
+
+                <h3>Experience</h3>
+
+                <p>
+                    Personal experiences provide information that the brain
+                    can use to understand the world. Positive and negative
+                    experiences can both contribute to learning and adaptation.
+                </p>
+
+            </div>
+
+
+            <div class="learning-card">
+
+                <div class="learning-number">METHOD 04</div>
+
+                <h3>Understanding</h3>
+
+                <p>
+                    Understanding helps us connect new information with
+                    knowledge we already have. Making these connections can
+                    make information easier to remember and apply later.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LEARNING PROCESS -->
+    <section>
+
+        <h2 class="section-title">The Learning Process</h2>
+
+        <p class="section-intro">
+            Learning involves several connected processes that help the
+            brain receive information, create connections, and use what
+            has been learned.
+        </p>
+
+
+        <div class="process">
+
+            <div class="process-card">
+
+                <div class="icon">👀</div>
+
+                <h3>Attention</h3>
+
+                <p>
+                    Paying attention helps the brain select important
+                    information from everything happening around us.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="icon">🧠</div>
+
+                <h3>Connection</h3>
+
+                <p>
+                    New information can be connected with existing
+                    knowledge, helping the brain build stronger understanding.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="icon">🔁</div>
+
+                <h3>Practice</h3>
+
+                <p>
+                    Reviewing and practicing information gives the brain
+                    opportunities to strengthen what has been learned.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FACT -->
+    <div class="fact">
+
+        <h2>Did You Know?</h2>
+
+        <p>
+            The brain can change throughout life. This ability,
+            called neuroplasticity, allows the brain to adapt,
+            form new connections, and support learning from new experiences.
+        </p>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 MindSpace — Explore the Human Brain
+
+    </footer>
+
+</body>
+
+</html>

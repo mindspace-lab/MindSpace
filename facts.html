@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MindSpace — Facts</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5efe6;
+            color: #3f3028;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            background: #f5efe6;
+            border-bottom: 1px solid #d8cabb;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 25px;
+            font-weight: bold;
+            color: #4b372d;
+        }
+
+        .logo span {
+            color: #9a806b;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #5b473b;
+            font-size: 14px;
+        }
+
+        nav ul li a:hover {
+            color: #9a806b;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 10%;
+        }
+
+        .hero-text {
+            width: 52%;
+        }
+
+        .hero-text h1 {
+            font-family: Georgia, serif;
+            font-size: 58px;
+            line-height: 1.1;
+            color: #3f3028;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            color: #806c5d;
+            max-width: 500px;
+        }
+
+        /* FACTS VISUAL */
+        .facts-visual {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: #e5d7c8;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bulb {
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            background: #9a806b;
+            position: relative;
+        }
+
+        .bulb::after {
+            content: "";
+            position: absolute;
+            width: 45px;
+            height: 30px;
+            background: #4b372d;
+            left: 30px;
+            bottom: -25px;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .ray {
+            position: absolute;
+            width: 4px;
+            height: 28px;
+            background: #6e594a;
+            border-radius: 5px;
+        }
+
+        .ray1 {
+            top: 55px;
+            left: 125px;
+            transform: rotate(0deg);
+        }
+
+        .ray2 {
+            top: 75px;
+            left: 75px;
+            transform: rotate(-45deg);
+        }
+
+        .ray3 {
+            top: 75px;
+            right: 75px;
+            transform: rotate(45deg);
+        }
+
+        .ray4 {
+            bottom: 70px;
+            left: 85px;
+            transform: rotate(-70deg);
+        }
+
+        .ray5 {
+            bottom: 70px;
+            right: 85px;
+            transform: rotate(70deg);
+        }
+
+        /* GENERAL */
+        section {
+            padding: 65px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: Georgia, serif;
+            font-size: 35px;
+            color: #3f3028;
+            margin-bottom: 15px;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 45px;
+            color: #806c5d;
+        }
+
+        /* FACT CARDS */
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .fact-card {
+            background: #faf6f0;
+            border: 1px solid #d8cabb;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .fact-number {
+            font-family: Georgia, serif;
+            font-size: 14px;
+            color: #9a806b;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .fact-card h3 {
+            font-family: Georgia, serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #4b372d;
+        }
+
+        .fact-card p {
+            color: #806c5d;
+            font-size: 15px;
+        }
+
+        /* MORE FACTS */
+        .more-facts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .more-card {
+            background: #e9ded2;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .more-card .icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .more-card h3 {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .more-card p {
+            color: #806c5d;
+            font-size: 14px;
+        }
+
+        /* FACT BANNER */
+        .fact-banner {
+            background: #4b372d;
+            color: #f5efe6;
+            text-align: center;
+            padding: 55px 10%;
+        }
+
+        .fact-banner h2 {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .fact-banner p {
+            max-width: 700px;
+            margin: auto;
+            color: #e5d7c8;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #f5efe6;
+            border-top: 1px solid #d8cabb;
+            color: #806c5d;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav ul li a {
+                font-size: 11px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .facts-visual {
+                margin-top: 40px;
+            }
+
+            .facts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .more-facts {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+
+        <div class="logo">
+            Mind<span>Space</span>
+        </div>
+
+        <ul>
+            <li><a href="brain-regions.html">Brain Regions</a></li>
+            <li><a href="memory.html">Memory</a></li>
+            <li><a href="sleep.html">Sleep</a></li>
+            <li><a href="emotion.html">Emotion</a></li>
+            <li><a href="learning.html">Learning</a></li>
+            <li><a href="facts.html">Facts</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>Interesting Brain Facts</h1>
+
+            <p>
+                The human brain is one of the most complex structures
+                in the body. From controlling movement to creating memories,
+                it performs countless processes every second.
+            </p>
+
+        </div>
+
+
+        <div class="facts-visual">
+
+            <span class="ray ray1"></span>
+            <span class="ray ray2"></span>
+            <span class="ray ray3"></span>
+            <span class="ray ray4"></span>
+            <span class="ray ray5"></span>
+
+            <div class="bulb"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section>
+
+        <h2 class="section-title">The Brain in Numbers</h2>
+
+        <p class="section-intro">
+            Behind everyday thoughts, movements, memories, and emotions
+            is a highly complex biological system. Here are some facts
+            that show just how remarkable the human brain is.
+        </p>
+
+    </section>
+
+
+    <!-- FACTS -->
+    <section>
+
+        <h2 class="section-title">Did You Know?</h2>
+
+        <p class="section-intro">
+            These facts offer a glimpse into the structure and abilities
+            of the human brain.
+        </p>
+
+
+        <div class="facts-grid">
+
+            <div class="fact-card">
+
+                <div class="fact-number">FACT 01</div>
+
+                <h3>About 86 Billion Neurons</h3>
+
+                <p>
+                    The human brain contains around 86 billion neurons.
+                    These specialized cells communicate with one another
+                    and help the brain process information throughout
+                    the body.
+                </p>
+
+            </div>
+
+
+            <div class="fact-card">
+
+                <div class="fact-number">FACT 02</div>
+
+                <h3>Always Active</h3>
+
+                <p>
+                    The brain remains active even when we are resting
+                    or sleeping. Different brain networks continue working
+                    to regulate important processes and organize information.
+                </p>
+
+            </div>
+
+
+            <div class="fact-card">
+
+                <div class="fact-number">FACT 03</div>
+
+                <h3>Uses A Lot of Energy</h3>
+
+                <p>
+                    Although the brain represents only a small part of
+                    the body's total weight, it uses a significant amount
+                    of the body's energy to support its constant activity.
+                </p>
+
+            </div>
+
+
+            <div class="fact-card">
+
+                <div class="fact-number">FACT 04</div>
+
+                <h3>Neuroplasticity</h3>
+
+                <p>
+                    The brain can change and adapt throughout life.
+                    This ability is known as neuroplasticity and allows
+                    the brain to create and strengthen connections through
+                    learning and experience.
+                </p>
+
+            </div>
+
+
+            <div class="fact-card">
+
+                <div class="fact-number">FACT 05</div>
+
+                <h3>Many Connections</h3>
+
+                <p>
+                    Neurons communicate through complex networks of
+                    connections. These networks allow different areas
+                    of the brain to work together and process information.
+                </p>
+
+            </div>
+
+
+            <div class="fact-card">
+
+                <div class="fact-number">FACT 06</div>
+
+                <h3>Both Sides Work Together</h3>
+
+                <p>
+                    The brain has two hemispheres that are connected
+                    by a large bundle of nerve fibers. They communicate
+                    constantly and work together during many activities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MORE FACTS -->
+    <section>
+
+        <h2 class="section-title">More Amazing Facts</h2>
+
+        <p class="section-intro">
+            The brain continues to surprise scientists with the way
+            it controls, adapts, and responds to the world around us.
+        </p>
+
+
+        <div class="more-facts">
+
+            <div class="more-card">
+
+                <div class="icon">👁️</div>
+
+                <h3>Vision</h3>
+
+                <p>
+                    A large amount of information received by the brain
+                    comes from our visual system, helping us understand
+                    shapes, colors, movement, and our surroundings.
+                </p>
+
+            </div>
+
+
+            <div class="more-card">
+
+                <div class="icon">🧩</div>
+
+                <h3>Complex Networks</h3>
+
+                <p>
+                    Different brain regions communicate through networks,
+                    allowing us to combine information from many systems
+                    at the same time.
+                </p>
+
+            </div>
+
+
+            <div class="more-card">
+
+                <div class="icon">🔬</div>
+
+                <h3>Still Being Studied</h3>
+
+                <p>
+                    Scientists continue to study the brain because many
+                    of its processes are still not completely understood.
+                    New discoveries continue to improve our knowledge.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FACT BANNER -->
+    <div class="fact-banner">
+
+        <h2>One Incredible Organ</h2>
+
+        <p>
+            The brain allows us to think, learn, remember, communicate,
+            experience emotions, and interact with the world. Its complexity
+            makes it one of the most fascinating organs in the human body.
+        </p>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 MindSpace — Explore the Human Brain
+
+    </footer>
+
+</body>
+
+</html>

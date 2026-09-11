@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MindSpace — Emotion</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5efe6;
+            color: #3f3028;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            background: #f5efe6;
+            border-bottom: 1px solid #d8cabb;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 25px;
+            font-weight: bold;
+            color: #4b372d;
+        }
+
+        .logo span {
+            color: #9a806b;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #5b473b;
+            font-size: 14px;
+        }
+
+        nav ul li a:hover {
+            color: #9a806b;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 10%;
+        }
+
+        .hero-text {
+            width: 52%;
+        }
+
+        .hero-text h1 {
+            font-family: Georgia, serif;
+            font-size: 58px;
+            line-height: 1.1;
+            color: #3f3028;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            color: #806c5d;
+            max-width: 500px;
+        }
+
+        /* EMOTION VISUAL */
+        .emotion-visual {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: #e5d7c8;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .face {
+            width: 155px;
+            height: 155px;
+            border-radius: 50%;
+            background: #9a806b;
+            position: relative;
+        }
+
+        .eye {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #4b372d;
+            top: 52px;
+        }
+
+        .eye-left {
+            left: 42px;
+        }
+
+        .eye-right {
+            right: 42px;
+        }
+
+        .mouth {
+            position: absolute;
+            width: 55px;
+            height: 28px;
+            border-bottom: 4px solid #4b372d;
+            border-radius: 50%;
+            bottom: 40px;
+            left: 50px;
+        }
+
+        .dot {
+            position: absolute;
+            color: #6e594a;
+            font-size: 20px;
+        }
+
+        .dot1 {
+            top: 45px;
+            left: 55px;
+        }
+
+        .dot2 {
+            top: 80px;
+            right: 45px;
+        }
+
+        .dot3 {
+            bottom: 55px;
+            left: 70px;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 65px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: Georgia, serif;
+            font-size: 35px;
+            color: #3f3028;
+            margin-bottom: 15px;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 45px;
+            color: #806c5d;
+        }
+
+        /* EMOTIONS */
+        .emotions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .emotion {
+            background: #faf6f0;
+            border: 1px solid #d8cabb;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .emotion-number {
+            font-family: Georgia, serif;
+            font-size: 14px;
+            color: #9a806b;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .emotion h3 {
+            font-family: Georgia, serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #4b372d;
+        }
+
+        .emotion p {
+            color: #806c5d;
+            font-size: 15px;
+        }
+
+        /* HOW EMOTIONS WORK */
+        .process {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .process-card {
+            background: #e9ded2;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .process-card .icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .process-card h3 {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .process-card p {
+            color: #806c5d;
+            font-size: 14px;
+        }
+
+        /* FACT */
+        .fact {
+            background: #4b372d;
+            color: #f5efe6;
+            text-align: center;
+            padding: 55px 10%;
+        }
+
+        .fact h2 {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .fact p {
+            max-width: 700px;
+            margin: auto;
+            color: #e5d7c8;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #f5efe6;
+            border-top: 1px solid #d8cabb;
+            color: #806c5d;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav ul li a {
+                font-size: 11px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .emotion-visual {
+                margin-top: 40px;
+            }
+
+            .emotions {
+                grid-template-columns: 1fr;
+            }
+
+            .process {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+
+        <div class="logo">
+            Mind<span>Space</span>
+        </div>
+
+        <ul>
+            <li><a href="brain-regions.html">Brain Regions</a></li>
+            <li><a href="memory.html">Memory</a></li>
+            <li><a href="sleep.html">Sleep</a></li>
+            <li><a href="emotion.html">Emotion</a></li>
+            <li><a href="learning.html">Learning</a></li>
+            <li><a href="facts.html">Facts</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>Understanding Emotion</h1>
+
+            <p>
+                Emotions are powerful responses that influence the way
+                we think, behave, remember, and interact with the world
+                around us. The brain plays a central role in creating
+                and regulating our emotional experiences.
+            </p>
+
+        </div>
+
+
+        <div class="emotion-visual">
+
+            <span class="dot dot1">✦</span>
+            <span class="dot dot2">✧</span>
+            <span class="dot dot3">✦</span>
+
+            <div class="face">
+
+                <div class="eye eye-left"></div>
+                <div class="eye eye-right"></div>
+
+                <div class="mouth"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section>
+
+        <h2 class="section-title">What Are Emotions?</h2>
+
+        <p class="section-intro">
+            Emotions are complex responses involving the brain, body,
+            and environment. They help us understand situations,
+            respond to challenges, connect with others, and guide
+            many of our everyday decisions.
+        </p>
+
+    </section>
+
+
+    <!-- MAIN EMOTIONS -->
+    <section>
+
+        <h2 class="section-title">Basic Emotions</h2>
+
+        <p class="section-intro">
+            Humans experience many different emotions. Some common
+            emotions are linked to specific situations and can influence
+            both our thoughts and physical reactions.
+        </p>
+
+
+        <div class="emotions">
+
+            <div class="emotion">
+
+                <div class="emotion-number">EMOTION 01</div>
+
+                <h3>Happiness</h3>
+
+                <p>
+                    Happiness is often associated with positive experiences,
+                    satisfaction, and connection with others. It can influence
+                    motivation, attention, and the way we interpret situations
+                    around us.
+                </p>
+
+            </div>
+
+
+            <div class="emotion">
+
+                <div class="emotion-number">EMOTION 02</div>
+
+                <h3>Fear</h3>
+
+                <p>
+                    Fear helps the brain recognize potential danger and
+                    prepare the body to respond. It can increase attention
+                    and help us react quickly when facing a difficult situation.
+                </p>
+
+            </div>
+
+
+            <div class="emotion">
+
+                <div class="emotion-number">EMOTION 03</div>
+
+                <h3>Anger</h3>
+
+                <p>
+                    Anger can appear when we experience frustration,
+                    unfairness, or obstacles. It can provide energy to
+                    respond to a situation, although the response can vary
+                    depending on the person and context.
+                </p>
+
+            </div>
+
+
+            <div class="emotion">
+
+                <div class="emotion-number">EMOTION 04</div>
+
+                <h3>Sadness</h3>
+
+                <p>
+                    Sadness is a natural emotional response to loss,
+                    disappointment, or difficult experiences. It can help
+                    us process events and may encourage us to seek support
+                    and connection with others.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOW EMOTIONS WORK -->
+    <section>
+
+        <h2 class="section-title">How Emotions Work</h2>
+
+        <p class="section-intro">
+            Emotional experiences involve several processes working
+            together. The brain interprets information, the body reacts,
+            and we then respond to the situation.
+        </p>
+
+
+        <div class="process">
+
+            <div class="process-card">
+
+                <div class="icon">🧠</div>
+
+                <h3>Brain</h3>
+
+                <p>
+                    The brain evaluates information and helps create
+                    an emotional response based on the situation.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="icon">💓</div>
+
+                <h3>Body</h3>
+
+                <p>
+                    Emotions can affect heart rate, breathing, muscle
+                    tension, and other physical responses.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="icon">💭</div>
+
+                <h3>Response</h3>
+
+                <p>
+                    Our thoughts and emotions influence how we react
+                    and communicate with the people around us.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FACT -->
+    <div class="fact">
+
+        <h2>Did You Know?</h2>
+
+        <p>
+            Emotions and thinking are closely connected. Emotional
+            information can influence attention, memory, learning,
+            and decision-making, showing how strongly the brain's
+            different functions work together.
+        </p>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 MindSpace — Explore the Human Brain
+
+    </footer>
+
+</body>
+
+</html>
